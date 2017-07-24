@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+        $('#preference-not-subscribe').change(function() {
+            var checked;
+            if($(this).is(":checked")) {
+                checked = 1;
+            }
+            else{
+                checked = 0;
+            }
+            var request = jQuery.ajax({
+                url: "<?php echo $this->getUrl('optinandout/index/optinandout',array('_secure'=>true)); ?>",
+                type: "POST",
+                dataType: 'json',
+                data: {opt_selection : checked}
+            });
+        });
+    });
+</script>
